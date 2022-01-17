@@ -1,0 +1,34 @@
+{
+  "posts": [
+    {
+      "fname": "aaa",
+      "lname": "bbbbb",
+      "mobile": "7777777774",
+      "email": "email@gamil.com",
+      "job": "Full Time",
+      "date": "2021-12-11",
+      "terms": true,
+      "id": 1
+    },
+    {
+      "fname": "visshnnu",
+      "lname": "tejaa updated",
+      "mobile": "7619352192",
+      "email": "email@gamil.com",
+      "job": "Part Time",
+      "date": "2021-12-29",
+      "terms": false,
+      "id": 2
+    },
+    {
+      "fname": "visshnnu  updated value",
+      "lname": "tejaa",
+      "mobile": "6789012344",
+      "email": "test@gmail.com",
+      "job": "Full Time",
+      "date": "2022-01-12",
+      "terms": true,
+      "id": 3
+    }
+  ]
+}

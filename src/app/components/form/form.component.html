@@ -1,0 +1,133 @@
+<div class="container">
+  <div class="card card-body mt-3">
+    <h4>Registration Form</h4>
+    <form [formGroup]="regstrationForm" (ngSubmit)="submitForm()">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="fname">First Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="fname"
+              formControlName="fname"
+              [ngClass]="{
+                'is-invalid': validationErrors('fname', 'minlength')
+              }"
+            />
+            <div class="text-danger">
+              {{ validationErrors("fname", "minlength") }}
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="mobile">Mobile</label>
+            <input
+              type="text"
+              class="form-control"
+              id="mobile"
+              formControlName="mobile"
+              [ngClass]="{
+                'is-invalid': validationErrors('mobile', 'pattern')
+              }"
+            />
+            <div class="text-danger">
+              {{ validationErrors("mobile", "pattern") }}
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="job">Job Type</label>
+            <select
+              class="form-control"
+              id="job"
+              formControlName="job"
+              [ngClass]="{
+                'is-invalid': validationErrors('job')
+              }"
+            >
+              <option value="">-- select job type --</option>
+              <option value="Full Time">Full Time</option>
+              <option value="Part Time">Part Time</option>
+              <option value="Contract">Contract</option>
+            </select>
+            <div class="text-danger">
+              {{ validationErrors("job") }}
+            </div>
+          </div>
+
+          <div class="form-group form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="terms"
+              formControlName="terms"
+            />
+            <label class="form-check-label" for="terms"
+              >Subscribe to send emails</label
+            >
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="lname">Last Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="lname"
+              formControlName="lname"
+              [ngClass]="{
+                'is-invalid': validationErrors('lname', 'minlength')
+              }"
+            />
+            <div class="text-danger">
+              {{ validationErrors("lname", "minlength") }}
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              formControlName="email"
+              [ngClass]="{
+                'is-invalid': validationErrors('email')
+              }"
+            />
+            <div class="text-danger">
+              {{ validationErrors("email") }}
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="date">Date</label>
+            <input
+              type="date"
+              class="form-control"
+              id="date"
+              formControlName="date"
+              [ngClass]="{
+                'is-invalid': validationErrors('date')
+              }"
+            />
+            <div class="text-danger">
+              {{ validationErrors("date") }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-right">
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="!regstrationForm.valid"
+        >
+          Submit Form
+        </button>
+      </div>
+    </form>
+  </div>
+  <!-- <pre>{{ regstrationForm.value | json }}</pre> -->
+</div>
