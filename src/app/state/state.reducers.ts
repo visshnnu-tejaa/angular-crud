@@ -42,7 +42,7 @@ const _reducer = createReducer(
   on(deletePostSuccess, (state, action) => {
     let filteredPosts = state.posts.filter((post) => {
       console.log(post);
-      return post.id == action.id;
+      return post.id != action.id;
     });
     return {
       ...state,
