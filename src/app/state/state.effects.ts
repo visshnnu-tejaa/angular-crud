@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { act, Actions, createEffect, ofType } from '@ngrx/effects';
 import { ToastrService } from 'ngx-toastr';
-import { catchError, exhaustMap, map, mergeMap, of } from 'rxjs';
+import { catchError, exhaustMap, map, mergeMap, of, tap } from 'rxjs';
 import { PostsService } from '../services/posts.service';
 import {
   addPostFailure,
@@ -25,7 +26,8 @@ export class postsEffect {
   constructor(
     private actions$: Actions,
     private postsService: PostsService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private router: Router
   ) {}
 
   getPosts$ = createEffect(() => {
@@ -123,4 +125,14 @@ export class postsEffect {
       })
     );
   });
+
+  updatePostRedirect$ = createEffect(
+    () => {
+      return this.actions$.pipe(
+        ofType(updatePostSuccess),
+        tap((action) => this.router.navigate(['/']))
+      );
+    },
+    { dispatch: false }
+  );
 }
